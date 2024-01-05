@@ -30,3 +30,15 @@ Future<int> compareDatesDifference(
   // Return Days Difference
   return days;
 }
+
+
+String latLongString(
+    var location,
+    bool isLat,
+    ) {
+  if (isLat) {
+    return location.latitude.toString();
+  } else {
+    return location.longitude.toString();
+  }
+}
