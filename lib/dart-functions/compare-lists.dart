@@ -42,3 +42,48 @@ String latLongString(
     return location.longitude.toString();
   }
 }
+String? getCategoryList(String languageCode,String category){
+  final Map<String, Map<String, List<String>>> categories = {
+    'en': {
+      'Accommodation': [
+        'Private Island Retreats',
+        'Historic Castle Stays',
+        'Ultra-Luxury Chalets',
+      ],
+      'Services': [
+        'Personal Butler Services',
+        'Fine Art Curator',
+        'Consultation',
+      ],
+      // Add other categories and translations here
+    },
+    'es': {
+      'Accommodation': [
+        'Suites Ático',
+        'Villas de Lujo',
+        'Apartamentos Elegantes',
+        'Mansiones Opulentas',
+      ],
+      'Services': [
+        'Servicios de Mayordomo Personal',
+        'Curador de Bellas Artes',
+        'Consulta',
+        'Acceso a Bodegas de Vinos Exclusivas',
+        'Estilista Personal',
+        'Confección a Medida',
+        'Limpieza Integral',
+      ],
+      // Add other categories and translations here
+    },
+    // Add translations for other languages here
+  };
+
+  final categoryMap = categories[languageCode];
+  if (categoryMap != null) {
+    final categoryList = categoryMap[category];
+    if (categoryList != null) {
+      return categoryList.join('\n');
+    }
+  }
+  return null; // Language or category not found in categories
+}
