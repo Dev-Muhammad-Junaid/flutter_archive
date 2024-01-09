@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+
 Set<int> compare_lists() {
   var list1 = [1, 2, 3, 4, 5];
   var list2 = [1, 2, 3, 4, 5];
@@ -31,7 +34,7 @@ Future<int> compareDatesDifference(
   return days;
 }
 
-
+//Get Location in Latitude or Longitude
 String latLongString(
     var location,
     bool isLat,
@@ -42,6 +45,7 @@ String latLongString(
     return location.longitude.toString();
   }
 }
+//Get Category List based on nested inputs
 String? getCategoryList(String languageCode,String category){
   final Map<String, Map<String, List<String>>> categories = {
     'en': {
@@ -68,10 +72,6 @@ String? getCategoryList(String languageCode,String category){
         'Servicios de Mayordomo Personal',
         'Curador de Bellas Artes',
         'Consulta',
-        'Acceso a Bodegas de Vinos Exclusivas',
-        'Estilista Personal',
-        'Confección a Medida',
-        'Limpieza Integral',
       ],
       // Add other categories and translations here
     },
@@ -86,4 +86,47 @@ String? getCategoryList(String languageCode,String category){
     }
   }
   return null; // Language or category not found in categories
+}
+
+//Chat Gpt 3.5 Turbo Function
+Future<String> getGPT3Completion(
+    String apiKey,
+    String userPrompt,
+    int maxTokens,
+    double temperature,
+    ) async {
+//messages from JSON DECODE
+  dynamic messages =
+  json.decode('[{"role": "user", "content": "$userPrompt"}]');
+
+  final data = {
+    "model": "gpt-3.5-turbo-1106",
+    "messages": messages,
+    'max_tokens': maxTokens,
+    'temperature': temperature,
+  };
+
+  final headers = {
+    'Authorization':
+    'Bearer $apiKey',
+    'Content-Type': 'application/json'
+  };
+  final request = http.Request(
+    'POST',
+    Uri.parse('https://api.openai.com/v1/chat/completions'),
+  );
+  request.body = json.encode(data);
+  request.headers.addAll(headers);
+
+  final httpResponse = await request.send();
+
+  if (httpResponse.statusCode == 200) {
+    final jsonResponse = json.decode(await httpResponse.stream.bytesToString());
+    String responseText = jsonResponse['choices'][0]['message']['content'];
+
+    return ' ' + responseText.trim();
+  } else {
+    print(httpResponse.reasonPhrase);
+    return '';
+  }
 }
