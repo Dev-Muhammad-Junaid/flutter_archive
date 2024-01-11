@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 
 Set<int> compare_lists() {
@@ -45,7 +46,7 @@ String latLongString(
     return location.longitude.toString();
   }
 }
-//Get Category List based on nested inputs
+//->Get Category List based on nested inputs
 String? getCategoryList(String languageCode,String category){
   final Map<String, Map<String, List<String>>> categories = {
     'en': {
@@ -129,4 +130,10 @@ Future<String> getGPT3Completion(
     print(httpResponse.reasonPhrase);
     return '';
   }
+}
+
+//->Lock App Orientation
+Future lockOrientation() async {
+  //supports landscapeLeft,landscapeRight, portraitUp, portraitDown
+  await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
