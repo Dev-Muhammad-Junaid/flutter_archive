@@ -137,3 +137,14 @@ Future lockOrientation() async {
   //supports landscapeLeft,landscapeRight, portraitUp, portraitDown
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
+//->Return number with Fixed decimal points
+String? numberDecimals(double? number,int decimalPoint) {
+  /// MODIFY CODE ONLY BELOW THIS LINE
+  // must return amount with 2 decimal points
+  if (number == null) {
+    return null;
+  } else {
+    return number.toStringAsFixed(decimalPoint);
+  }
+  /// MODIFY CODE ONLY ABOVE THIS LINE
+}
