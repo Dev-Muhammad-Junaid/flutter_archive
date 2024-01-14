@@ -148,3 +148,19 @@ String? numberDecimals(double? number,int decimalPoint) {
   }
   /// MODIFY CODE ONLY ABOVE THIS LINE
 }
+
+//->Add or Remove from List
+void numbersList() {
+  List<int> numbers = [1, 2, 3, 4, 5];
+  numbers.add(6);
+  numbers.remove(3);
+  print(numbers); // Output: [1, 2, 4, 5, 6]
+}
+
+//->Expand Nested List
+void ExpandNestedList() {
+  List<List<int>> nestedList = [[1, 2], [3, 4], [5, 6]];
+  List<int> flatList = nestedList.expand((list) => list).toList();
+  print(flatList); // Output: [1, 2, 3, 4, 5, 6]
+}
+
