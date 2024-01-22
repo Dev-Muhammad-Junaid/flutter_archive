@@ -114,8 +114,8 @@ class _AnimatedButtonState extends State<AnimatedButton>
     ).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Curves.easeInSine,
-        reverseCurve: Curves.linear,
+        curve: Curves.easeIn,
+        reverseCurve: Curves.easeOut
       ),
     );
 
@@ -137,7 +137,6 @@ class _AnimatedButtonState extends State<AnimatedButton>
           borderRadius: BorderRadius.circular(widget.borderRadius),
           child: Container(
             decoration: BoxDecoration(
-              // color: widget.containerColor.withOpacity(widget.containerOpacity),
               gradient: LinearGradient(
                 colors: gradientColors,
                 begin: Alignment(
@@ -153,11 +152,11 @@ class _AnimatedButtonState extends State<AnimatedButton>
             child: Container(
               width: widget.containerWidth,
               height: widget.containerHeight,
-              margin: const EdgeInsets.all(3),
-              padding: const EdgeInsets.all(20),
+              margin: widget.containerMargin,
+              padding: widget.containerPadding,
               decoration: BoxDecoration(
                 color: widget.containerColor,
-                borderRadius: BorderRadius.circular(widget.borderRadius),
+                borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
                 widget.text,

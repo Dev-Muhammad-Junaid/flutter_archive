@@ -164,3 +164,16 @@ void ExpandNestedList() {
   print(flatList); // Output: [1, 2, 3, 4, 5, 6]
 }
 
+//->Sort Items Alphabetically in Dart where Any is always first
+void SortItems(List<String> states) {
+  states.sort((a, b) {
+    if (a == 'Any') {
+      return -1; // 'Any' comes first
+    } else if (b == 'Any') {
+      return 1; // 'Any' comes after
+    } else {
+      return a.compareTo(b); // Compare other items alphabetically
+    }
+  });
+  print(states);
+}
