@@ -179,8 +179,17 @@ List<String> SortItems(List<String> states) {
   return(states);
 }
 
+//Sort List by Length
 List<String> sortByLength(List<String> strings) {
   strings.sort((a, b) => a.length.compareTo(b.length));
   return strings;
 }
 
+//Find most frequent number
+int findMostFrequent(List<int> list) {
+  var frequencyMap = <int, int>{};
+  for (var item in list) {
+    frequencyMap.update(item, (value) => value + 1, ifAbsent: () => 1);
+  }
+  return frequencyMap.entries.reduce((a, b) => a.value > b.value ? a : b).key;
+}
