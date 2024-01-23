@@ -165,7 +165,7 @@ void ExpandNestedList() {
 }
 
 //->Sort Items Alphabetically in Dart where Any is always first
-void SortItems(List<String> states) {
+List<String> SortItems(List<String> states) {
   states.sort((a, b) {
     if (a == 'Any') {
       return -1; // 'Any' comes first
@@ -176,4 +176,11 @@ void SortItems(List<String> states) {
     }
   });
   print(states);
+  return(states);
 }
+
+List<String> sortByLength(List<String> strings) {
+  strings.sort((a, b) => a.length.compareTo(b.length));
+  return strings;
+}
+

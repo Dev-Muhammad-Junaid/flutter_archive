@@ -12,6 +12,7 @@ class AnimatedButton extends StatefulWidget {
     this.containerPadding = const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
     this.containerColor = const Color(0xFF000000), // Default to black
     this.containerOpacity = 0.9,
+    this.borderWidth = 2,
     this.borderRadius = 10,
     this.textStyle = const TextStyle(fontSize: 20),
   }) : super(key: key);
@@ -27,6 +28,7 @@ class AnimatedButton extends StatefulWidget {
   final double containerOpacity;
   final double borderRadius;
   final TextStyle textStyle;
+  final double borderWidth;
   final Map<String, List<Color>> gradientSets = {
     'Rainbow': [
       Colors.red,
@@ -156,7 +158,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
               padding: widget.containerPadding,
               decoration: BoxDecoration(
                 color: widget.containerColor,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(widget.borderRadius),
               ),
               child: Text(
                 widget.text,

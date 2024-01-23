@@ -26,7 +26,7 @@ class Home extends StatelessWidget {
                   // Custom width
                   containerHeight: 100,
                   // Custom height
-                  containerMargin: const EdgeInsets.all(2),
+                  containerMargin: const EdgeInsets.all(1),
                   // Custom margin
                   containerPadding: const EdgeInsets.all(20),
                   // Custom padding
