@@ -89,6 +89,11 @@ class AnimatedButton extends StatefulWidget {
       Color(0xFF4B0082),
       Color(0xFF9932CC),
     ],
+    'Blink': [
+      Color(0xFFFF0A0A),
+      Color(0xFFFFFFFF),
+
+    ],
   };
   @override
   _AnimatedButtonState createState() => _AnimatedButtonState();

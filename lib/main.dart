@@ -72,15 +72,40 @@ class Home extends StatelessWidget {
                 AnimatedButton(
                     text: "Junaid",
                     gradientStyle: "MysticalTwilight",
-                    containerWidth: 200,
+                    containerWidth: 100,
                     // Custom width
-                    containerHeight: 200,
+                    containerHeight: 100,
                     // Custom height
                     containerMargin: const EdgeInsets.all(2),
                     // Custom margin
                     containerPadding: const EdgeInsets.all(20),
                     // Custom padding
                     containerColor: Colors.black,
+                    // Custom background color
+                    containerOpacity: 0.1,
+                    // Custom opacity
+                    borderRadius: 0,
+                    // Custom border radius
+                    animationDuration: Duration(seconds: 2),
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    )), Padding(
+                  padding: const EdgeInsets.all(10.0),
+                ),
+                AnimatedButton(
+                    text: "Junaid",
+                    gradientStyle: "Blink",
+                    containerWidth: 100,
+                    // Custom width
+                    containerHeight: 100,
+                    // Custom height
+                    containerMargin: const EdgeInsets.all(2),
+                    // Custom margin
+                    containerPadding: const EdgeInsets.all(20),
+                    // Custom padding
+                    containerColor: Colors.transparent,
                     // Custom background color
                     containerOpacity: 0.1,
                     // Custom opacity
