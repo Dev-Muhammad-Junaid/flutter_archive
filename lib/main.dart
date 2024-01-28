@@ -109,7 +109,7 @@ class Home extends StatelessWidget {
                     // Custom background color
                     containerOpacity: 0.1,
                     // Custom opacity
-                    borderRadius: 0,
+                    borderRadius: 10,
                     // Custom border radius
                     animationDuration: Duration(seconds: 2),
                     textStyle: TextStyle(
