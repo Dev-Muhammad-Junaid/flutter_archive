@@ -10,7 +10,9 @@ class AnimatedAlignWidget extends StatefulWidget {
 class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
   bool animatePosition = false;
   Alignment currentAlignment = Alignment.topLeft;
-  late Alignment resultAlignment;
+  Alignment resultAlignment = Alignment.topLeft;
+  int sensitivity = 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,10 +104,58 @@ class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
               alignment: animatePosition ? resultAlignment : currentAlignment,
               duration: const Duration(seconds: 1),
               curve: Curves.fastOutSlowIn,
-              child: Container(
-                color: Colors.cyan,
-                height: 100,
-                width: 100,
+              child: GestureDetector(
+                onHorizontalDragUpdate: (details) {
+                  if (details.delta.dx > sensitivity) {
+                    setState(() {
+                      print("Top Bottom 1");
+                      animatePosition = true;
+                      if (resultAlignment == Alignment.topLeft) {
+                        resultAlignment = Alignment.topRight;
+                      } else if (resultAlignment == Alignment.bottomLeft) {
+                        resultAlignment = Alignment.bottomRight;
+                      }
+                    });
+                  } else if (details.delta.dx < -sensitivity) {
+                    setState(() {
+                      print("Top Bottom 2");
+                      animatePosition = true;
+                      if (resultAlignment == Alignment.topRight) {
+                        resultAlignment = Alignment.topLeft;
+                      } else if (resultAlignment == Alignment.bottomRight) {
+                        resultAlignment = Alignment.bottomLeft;
+                      }
+                    });
+                  }
+                },
+                onVerticalDragUpdate: (details) {
+                  if (details.delta.dy > sensitivity) {
+                    setState(() {
+                      print("Top");
+                      animatePosition = true;
+                      if (resultAlignment == Alignment.topLeft) {
+                        resultAlignment = Alignment.bottomLeft;
+                      } else if (resultAlignment == Alignment.topRight) {
+                        resultAlignment = Alignment.bottomRight;
+                      }
+                    });
+                  } else if (details.delta.dy < -sensitivity) {
+                    setState(() {
+                      print("Bottom");
+                      animatePosition = true;
+                      if (resultAlignment == Alignment.bottomLeft) {
+                        resultAlignment = Alignment.topLeft;
+                      } else if (resultAlignment == Alignment.bottomRight) {
+                        resultAlignment = Alignment.topRight;
+                      }
+                    });
+                  }
+                },
+                child: Container(
+                  color: Colors.cyan,
+                  height: 100,
+                  width: 100,
+                ),
               ),
             ),
           ),
