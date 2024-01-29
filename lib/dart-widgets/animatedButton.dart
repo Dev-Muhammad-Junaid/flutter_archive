@@ -122,7 +122,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
       CurvedAnimation(
         parent: _controller,
         curve: Curves.easeIn,
-        reverseCurve: Curves.easeOut
+
       ),
     );
 

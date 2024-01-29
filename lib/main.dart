@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_archive/dart-widgets/animatedAlign.dart';
 import 'package:flutter_archive/dart-widgets/animatedButton.dart';
 
 void main() {
@@ -20,7 +21,17 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Padding(padding: const EdgeInsets.all(10.0),),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                ),
+                Builder(
+                  builder: (context){
+                  return ElevatedButton(
+                      onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => const AnimatedAlignWidget())
+                      ),
+                      child: Text("Animated Align"),
+                );}),
                 AnimatedButton(
                     text: "Hello",
                     gradientStyle: "Trident",
@@ -44,7 +55,9 @@ class Home extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     )),
-                Padding(padding: const EdgeInsets.all(10.0),),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                ),
                 AnimatedButton(
                     text: "World",
                     gradientStyle: "PastelDreams",
@@ -68,7 +81,9 @@ class Home extends StatelessWidget {
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     )),
-                Padding(padding: const EdgeInsets.all(10.0),),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                ),
                 AnimatedButton(
                     text: "Junaid",
                     gradientStyle: "MysticalTwilight",
@@ -91,7 +106,8 @@ class Home extends StatelessWidget {
                       fontSize: 20,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
-                    )), Padding(
+                    )),
+                Padding(
                   padding: const EdgeInsets.all(10.0),
                 ),
                 AnimatedButton(
