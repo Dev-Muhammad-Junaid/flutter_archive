@@ -14,6 +14,7 @@ class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey.shade700,
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Container(
@@ -24,45 +25,66 @@ class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
             border: Border.all(width: 1),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Flexible(
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      animatePosition = true;
-                      resultAlignment = Alignment.topLeft;
-                    });
-                  },
-                  child: const Text("TopLeft"),
-                ),
+          child: Wrap(
+            runSpacing: 10,
+            spacing: 5,
+            alignment: WrapAlignment.spaceAround,
+            runAlignment: WrapAlignment.spaceAround,
+            children:[
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    animatePosition = true;
+                    resultAlignment = Alignment.topLeft;
+                  });
+                },
+                child: const Text("TopLeft"),
               ),
-              Flexible(
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      animatePosition = true;
-                      resultAlignment = Alignment.topCenter;
-                    });
-                  },
-                  child: const Text("TopCenter"),
-                ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    animatePosition = true;
+                    resultAlignment = Alignment.topCenter;
+                  });
+                },
+                child: const Text("TopCenter"),
               ),
-              Flexible(
-                child: ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      animatePosition = true;
-                      resultAlignment = Alignment.topRight;
-                    });
-                  },
-                  child: const Text("TopRight"),
-                ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    animatePosition = true;
+                    resultAlignment = Alignment.topRight;
+                  });
+                },
+                child: const Text("TopRight"),
+              ), ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    animatePosition = true;
+                    resultAlignment = Alignment.bottomLeft;
+                  });
+                },
+                child: const Text("BottomLeft"),
               ),
-              // same for other alignment
-            ],
-          ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    animatePosition = true;
+                    resultAlignment = Alignment.bottomCenter;
+                  });
+                },
+                child: const Text("BottomCenter"),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    animatePosition = true;
+                    resultAlignment = Alignment.bottomRight;
+                  });
+                },
+                child: const Text("BottomRight"),
+              ),
+          ]),
         ),
       ),
       body: Center(
@@ -75,7 +97,7 @@ class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
               borderRadius:BorderRadius.circular(20),
             ),
             width: double.infinity,
-            height: 500,
+            height: 300,
             child: AnimatedAlign(
               alignment: animatePosition ? resultAlignment : currentAlignment,
               duration: const Duration(seconds: 1),
