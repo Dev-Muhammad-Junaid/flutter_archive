@@ -5,7 +5,7 @@ class AnimatedButton extends StatefulWidget {
     Key? key,
     required this.text,
     this.gradientStyle = 'Rainbow',
-    this.animationDuration = const Duration(seconds: 4),
+    this.animationDuration = const Duration(seconds: 2),
     this.containerWidth = 250,
     this.containerHeight = 250,
     this.containerMargin = const EdgeInsets.all(2),
@@ -101,7 +101,6 @@ class AnimatedButton extends StatefulWidget {
 
 class _AnimatedButtonState extends State<AnimatedButton>
     with SingleTickerProviderStateMixin {
-
 
   late AnimationController _controller;
   late Animation<double> _animation;

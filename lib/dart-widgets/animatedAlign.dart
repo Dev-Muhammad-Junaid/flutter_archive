@@ -24,69 +24,71 @@ class _AnimatedAlignWidgetState extends State<AnimatedAlignWidget> {
           height: 150,
           decoration: BoxDecoration(
             color: Colors.blueGrey,
-            border: Border.all(width: 1),
             borderRadius: BorderRadius.circular(20),
           ),
-          child: Wrap(
-            runSpacing: 10,
-            spacing: 5,
-            alignment: WrapAlignment.spaceAround,
-            runAlignment: WrapAlignment.spaceAround,
-            children:[
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    animatePosition = true;
-                    resultAlignment = Alignment.topLeft;
-                  });
-                },
-                child: const Text("TopLeft"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    animatePosition = true;
-                    resultAlignment = Alignment.topCenter;
-                  });
-                },
-                child: const Text("TopCenter"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    animatePosition = true;
-                    resultAlignment = Alignment.topRight;
-                  });
-                },
-                child: const Text("TopRight"),
-              ), ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    animatePosition = true;
-                    resultAlignment = Alignment.bottomLeft;
-                  });
-                },
-                child: const Text("BottomLeft"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    animatePosition = true;
-                    resultAlignment = Alignment.bottomCenter;
-                  });
-                },
-                child: const Text("BottomCenter"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    animatePosition = true;
-                    resultAlignment = Alignment.bottomRight;
-                  });
-                },
-                child: const Text("BottomRight"),
-              ),
-          ]),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Wrap(
+              runSpacing: 10,
+              spacing: 5,
+              alignment: WrapAlignment.spaceAround,
+              runAlignment: WrapAlignment.spaceEvenly,
+              children:[
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      animatePosition = true;
+                      resultAlignment = Alignment.topLeft;
+                    });
+                  },
+                  child: const Text("TopLeft"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      animatePosition = true;
+                      resultAlignment = Alignment.topCenter;
+                    });
+                  },
+                  child: const Text("TopCenter"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      animatePosition = true;
+                      resultAlignment = Alignment.topRight;
+                    });
+                  },
+                  child: const Text("TopRight"),
+                ), ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      animatePosition = true;
+                      resultAlignment = Alignment.bottomLeft;
+                    });
+                  },
+                  child: const Text("B-Left"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      animatePosition = true;
+                      resultAlignment = Alignment.bottomCenter;
+                    });
+                  },
+                  child: const Text("B-Center"),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      animatePosition = true;
+                      resultAlignment = Alignment.bottomRight;
+                    });
+                  },
+                  child: const Text("B-Right"),
+                ),
+            ]),
+          ),
         ),
       ),
       body: Center(
