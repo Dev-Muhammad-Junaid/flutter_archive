@@ -120,7 +120,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
     ).animate(
       CurvedAnimation(
         parent: _controller,
-        curve: Curves.easeIn,
+        curve: Curves.fastEaseInToSlowEaseOut,
 
       ),
     );
