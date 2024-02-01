@@ -193,3 +193,19 @@ int findMostFrequent(List<int> list) {
   }
   return frequencyMap.entries.reduce((a, b) => a.value > b.value ? a : b).key;
 }
+
+//Add Days to Date
+String addtoDate(
+    DateTime? date,
+    int daystoAdd,
+    ) {
+
+  // add days to date
+  // DateTime date = DateTime.now();
+  if (date == null) return "1/23/1234";
+
+  DateTime newDate = date.add(Duration(days: daystoAdd));
+  return DateFormat.yMd().format(newDate);
+  // return DateFormat('yyyy-MM-dd').format(newDate);
+  /// MODIFY CODE ONLY ABOVE THIS LINE
+}
