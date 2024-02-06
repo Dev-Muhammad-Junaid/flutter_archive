@@ -210,3 +210,9 @@ String addtoDate(
   // return DateFormat.yMMMMd().format(newDate);
   // print("Passed Date : ${DateFormat.yMMMMd().format(date!)}");
 }
+
+/// Computes the nth Fibonacci number.
+int fibonacci(int n) {
+  return n < 2 ? n : (fibonacci(n - 1) + fibonacci(n - 2));
+}
+
