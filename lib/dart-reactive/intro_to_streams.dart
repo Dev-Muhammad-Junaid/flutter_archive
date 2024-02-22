@@ -2,6 +2,7 @@ void main() {
   // singleWhere();
   // firstWhere();
   // lastWhere();
+  // where();
   // first();
   // single();
   // last();
@@ -18,15 +19,26 @@ void main() {
   // getNumbers();
   // getNumbersException();
 
-  //----
-  expand();
+  //---- Advance
+  // expand();
+  // map();
+  // skip();
+  // skipWhile();
+  // take();
+  // takeWhile();
+  // distinct();
+  // multiFunctions();
+
+  //Error Handling
+  timeout();
 }
 
 // Stream Function Basic
 Stream<int> getNumbers() async* {
   for (int i = 1; i <= 3; i++) {
     yield i;
-    await Future.delayed(Duration(seconds: 1));
+    yield i;
+    await Future.delayed(Duration(seconds: 4));
   }
 }
 
@@ -155,6 +167,89 @@ void join() async {
   print(await getNumbers().join("-"));
 }
 
-void expand() async {
-  print(await getNumbers().expand((element) => [element > 0]));
+// Expand the incoming data and manipulate it. Uses Iterables
+void expand() {
+  getNumbers()
+      .expand((element) => [element, element * 10, "-"])
+      .listen((event) {
+    print(event);
+  });
+}
+
+// Map the incoming data and manipulate it as it listens
+
+void map() {
+//ex 2
+  getNumbers().map((data) {
+    if (data % 2 == 0) {
+      return data + 2;
+    } else {
+      return data - 2;
+    }
+  }).listen((data) {
+    print(data);
+  });
+}
+
+//Skip the first X values from the stream
+void skip() {
+  getNumbers().skip(2).listen((data) {
+    print(data);
+  });
+}
+
+//Skips the values while a certain condition is met , and then emits the entire stream if not
+void skipWhile() {
+  getNumbers().skipWhile((data) => data < 10).listen((data) {
+    print(data);
+  });
+}
+
+//Take the first X values only and terminates if value less or equal to take
+void take() {
+  getNumbers().take(100).listen((event) {
+    print(event);
+  });
+}
+//Take the values while a certain condition is met, and terminates
+
+void takeWhile() {
+  getNumbers().takeWhile((data) => data < 3).listen((data) {
+    print(data);
+  });
+}
+
+//Check each data in stream where condition met
+
+void where() {
+  getNumbers().where((data) => data > 1).listen((data) {
+    print(data);
+  });
+}
+//Only Distinct values
+
+void distinct() {
+  getNumbers().distinct().listen((event) {
+    print(event);
+  });
+}
+//Chaining multipel functions
+
+void multiFunctions() {
+  getNumbers()
+      .distinct()
+      .map((data) => data * 10)
+      .where((data) => data != 20)
+      .listen((data) {
+    print(data);
+  });
+}
+
+//Timeout error if data takes more than X duration
+void timeout() {
+  getNumbers().timeout(Duration(seconds: 3)).listen((event) {
+    print(event);
+  }).onError((error) {
+    print("Error Occurred : $error");
+  });
 }
