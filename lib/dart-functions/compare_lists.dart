@@ -196,21 +196,21 @@ int findMostFrequent(List<int> list) {
 
 //Add Days to Date
 
-String addtoDate(
-    DateTime? date,
-    int daystoAdd,
-    ) {
-
-  // add days to date
-  //safasf
-  // DateTime date = DateTime.now();
-  if (date == null) return "1/23/1234";
-
-  DateTime newDate = date.add(Duration(days: daystoAdd));
-  return DateFormat.yMd().format(newDate);
-  // return DateFormat.yMMMMd().format(newDate);
-  // print("Passed Date : ${DateFormat.yMMMMd().format(date!)}");
-}
+// String addtoDate(
+//     DateTime? date,
+//     int daystoAdd,
+//     ) {
+//
+//   // add days to date
+//   //safasf
+//   // DateTime date = DateTime.now();
+//   if (date == null) return "1/23/1234";
+//
+//   DateTime newDate = date.add(Duration(days: daystoAdd));
+//   return DateFormat.yMd().format(newDate);
+//   // return DateFormat.yMMMMd().format(newDate);
+//   // print("Passed Date : ${DateFormat.yMMMMd().format(date!)}");
+// }
 
 /// Computes the nth Fibonacci number.
 int fibonacci(int n) {
