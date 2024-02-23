@@ -34,7 +34,7 @@ class Home extends StatelessWidget {
                       ),
                       child: Text("Animated Align"),
                 );}),
-                const StreamWidget(),
+                StreamWidget(),
               ],
             ),
           ),

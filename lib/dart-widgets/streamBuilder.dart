@@ -10,12 +10,12 @@ class StreamWidget extends StatefulWidget {
 Stream<int> getNumbers() async* {
   for (int i = 0; i <= 10; i++) {
     yield i;
+    await Future.delayed(Duration(milliseconds: 500));
   }
-  await Future.delayed(Duration(seconds: 3));
 }
 
 class _StreamWidgetState extends State<StreamWidget> {
-  int currentNumber = 0;
+  int currentNumber = -1;
 
   void initState() {
     getNumbers().listen((event) {
@@ -32,7 +32,7 @@ class _StreamWidgetState extends State<StreamWidget> {
       children: [
         StreamBuilder(stream: getNumbers(), builder: (context, snapshot) {
           return Text(snapshot.hasData ? snapshot.data.toString() : "unset",
-            style: TextStyle(fontSize: 45));
+            style: TextStyle(fontSize: 50,color: Colors.amber));
         }),
 
       ],
