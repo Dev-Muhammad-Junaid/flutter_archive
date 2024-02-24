@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_archive/dart-widgets/animatedAlign.dart';
 import 'package:flutter_archive/dart-widgets/animatedButton.dart';
+import 'package:flutter_archive/pages/blog_post_widget.dart';
 
 import 'dart-widgets/streamBuilder.dart';
 
@@ -34,7 +35,15 @@ class Home extends StatelessWidget {
                       ),
                       child: Text("Animated Align"),
                 );}),
-                StreamWidget(),
+                Builder(
+                  builder: (context){
+                  return ElevatedButton(
+                      onPressed: () => Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => BlogPostWidget()),
+                      ),
+                      child: Text("Blogs"),
+                );}),
+
               ],
             ),
           ),

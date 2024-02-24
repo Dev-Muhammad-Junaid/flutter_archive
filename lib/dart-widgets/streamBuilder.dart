@@ -1,41 +1,37 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
-class StreamWidget extends StatefulWidget {
-  const StreamWidget({super.key});
+class StreamContainer {
+  final StreamController<int> _numberController =
+      StreamController<int>.broadcast();
+
+  Stream<int> get outStream => _numberController.stream;
+
+  Sink<int> get inStream => _numberController.sink;
+
+  void dispose() {
+    _numberController.close();
+  }
+}
+
+class StreamWidget extends StatelessWidget {
+  final model = StreamContainer();
+
+  StreamWidget({super.key});
 
   @override
-  State<StreamWidget> createState() => _StreamWidgetState();
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[],
+    );
+  }
 }
 
 Stream<int> getNumbers() async* {
-  for (int i = 0; i <= 10; i++) {
+  for (int i = 1; i <= 10; i++) {
     yield i;
     await Future.delayed(Duration(milliseconds: 500));
   }
 }
 
-class _StreamWidgetState extends State<StreamWidget> {
-  int currentNumber = -1;
-
-  void initState() {
-    getNumbers().listen((event) {
-      setState(() {
-        currentNumber = event;
-      });
-    });
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        StreamBuilder(stream: getNumbers(), builder: (context, snapshot) {
-          return Text(snapshot.hasData ? snapshot.data.toString() : "unset",
-            style: TextStyle(fontSize: 50,color: Colors.amber));
-        }),
-
-      ],
-    );
-  }
-}
