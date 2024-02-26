@@ -1,4 +1,4 @@
 {
-    "dart.hotReloadOnSave": "all",
-    "dart.flutterHotReloadOnSave": "all"
+    "dart.hotReloadOnSave": "allIfDirty",
+    "dart.flutterHotReloadOnSave": "allIfDirty"
 }

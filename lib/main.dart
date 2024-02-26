@@ -3,10 +3,17 @@ import 'package:flutter_archive/dart-widgets/animatedAlign.dart';
 import 'package:flutter_archive/dart-widgets/animatedButton.dart';
 import 'package:flutter_archive/dart-widgets/animtedSlider.dart';
 import 'package:flutter_archive/pages/blog_post_widget.dart';
+import 'package:flutter_archive/viewmodels/blog_post_vm.dart';
+import 'package:get_it/get_it.dart';
 
 import 'dart-widgets/streamBuilder.dart';
 
+void setupLocator() {
+  GetIt.I.registerLazySingleton(() => BlogPostViewModel());
+}
+
 void main() {
+  setupLocator();
   runApp(const Home());
 }
 
@@ -32,8 +39,8 @@ class Home extends StatelessWidget {
                   cornerRadius: BorderRadius.circular(1000),
                   onChange: (value) {},
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
+                const Padding(
+                  padding: EdgeInsets.all(10.0),
                 ),
                 Builder(builder: (context) {
                   return ElevatedButton(
@@ -41,7 +48,7 @@ class Home extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => const AnimatedAlignWidget())),
-                    child: Text("Animated Align"),
+                    child: const Text("Animated Align"),
                   );
                 }),
                 Builder(builder: (context) {
@@ -50,7 +57,7 @@ class Home extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => BlogPostWidget()),
                     ),
-                    child: Text("Blogs Streaming"),
+                    child: const Text("Blogs Streaming"),
                   );
                 }),
               ],
