@@ -50,10 +50,9 @@ class Home extends StatelessWidget {
                       context,
                       MaterialPageRoute(builder: (context) => BlogPostWidget()),
                     ),
-                    child: Text("Blogs"),
+                    child: Text("Blogs Streaming"),
                   );
                 }),
-                AnimatedSlide(offset: Offset.infinite, duration: Duration(seconds: 3)),
               ],
             ),
           ),
