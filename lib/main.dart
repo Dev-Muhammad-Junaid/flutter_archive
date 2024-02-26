@@ -6,8 +6,6 @@ import 'package:flutter_archive/pages/blog_post_widget.dart';
 import 'package:flutter_archive/viewmodels/blog_post_vm.dart';
 import 'package:get_it/get_it.dart';
 
-import 'dart-widgets/streamBuilder.dart';
-
 void setupLocator() {
   GetIt.I.registerLazySingleton(() => BlogPostViewModel());
 }
@@ -32,6 +30,18 @@ class Home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: const Gradients(
+                    animationDuration: 3,
+                    borderRadius: 25,
+                    borderWidth: 2,
+                    containerColor: Colors.transparent,
+                    gradientStyle: "Beach",
+                    height: 50,
+                    width: 10,
+                  ),
+                ),
                 AnimatedSlider(
                   leftFillColor: Colors.orange.shade400,
                   height: 60,

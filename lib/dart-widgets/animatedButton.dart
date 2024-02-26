@@ -106,9 +106,9 @@ class _GradientsState extends State<Gradients>
   @override
   Widget build(BuildContext context) {
     List<Color> gradientColors =
-    Gradients.gradientSets.containsKey(widget.gradientStyle)
-        ? Gradients.gradientSets[widget.gradientStyle]!
-        : Gradients.gradientSets['PastelDreams']!;
+        Gradients.gradientSets.containsKey(widget.gradientStyle)
+            ? Gradients.gradientSets[widget.gradientStyle]!
+            : Gradients.gradientSets['PastelDreams']!;
 
     return AnimatedBuilder(
       animation: _animation,
