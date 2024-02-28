@@ -32,7 +32,7 @@ class Home extends StatelessWidget {
               children: [
                 const Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: const Gradients(
+                  child: Gradients(
                     animationDuration: 3,
                     borderRadius: 25,
                     borderWidth: 2,
@@ -40,6 +40,18 @@ class Home extends StatelessWidget {
                     gradientStyle: "Beach",
                     height: 50,
                     width: 10,
+                  ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Gradients(
+                    animationDuration: 3,
+                    borderRadius: 1000,
+                    borderWidth: 2,
+                    containerColor: Colors.transparent,
+                    gradientStyle: "Trident",
+                    height: 50,
+                    width: 50,
                   ),
                 ),
                 AnimatedSlider(
