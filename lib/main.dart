@@ -52,8 +52,15 @@ class Home extends StatelessWidget {
                     ),
                     child: Text("Blogs"),
                   );
+                }), Builder(builder: (context) {
+                  return ElevatedButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => BlogPostWidget()),
+                    ),
+                    child: Text("Blogs"),
+                  );
                 }),
-                AnimatedSlide(offset: Offset.infinite, duration: Duration(seconds: 3)),
               ],
             ),
           ),
