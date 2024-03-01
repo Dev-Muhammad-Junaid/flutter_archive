@@ -23,9 +23,9 @@ String? splitName(
 }
 
 Future<int> compareDatesDifference(
-    DateTime date1,
-    DateTime date2,
-    ) async {
+  DateTime date1,
+  DateTime date2,
+) async {
   //Calculate Difference
   Duration difference = date1.difference(date2);
 
@@ -37,17 +37,18 @@ Future<int> compareDatesDifference(
 
 //Get Location in Latitude or Longitude
 String latLongString(
-    var location,
-    bool isLat,
-    ) {
+  var location,
+  bool isLat,
+) {
   if (isLat) {
     return location.latitude.toString();
   } else {
     return location.longitude.toString();
   }
 }
+
 //->Get Category List based on nested inputs
-String? getCategoryList(String languageCode,String category){
+String? getCategoryList(String languageCode, String category) {
   final Map<String, Map<String, List<String>>> categories = {
     'en': {
       'Accommodation': [
@@ -91,14 +92,14 @@ String? getCategoryList(String languageCode,String category){
 
 //Chat Gpt 3.5 Turbo Function
 Future<String> getGPT3Completion(
-    String apiKey,
-    String userPrompt,
-    int maxTokens,
-    double temperature,
-    ) async {
+  String apiKey,
+  String userPrompt,
+  int maxTokens,
+  double temperature,
+) async {
 //messages from JSON DECODE
   dynamic messages =
-  json.decode('[{"role": "user", "content": "$userPrompt"}]');
+      json.decode('[{"role": "user", "content": "$userPrompt"}]');
 
   final data = {
     "model": "gpt-3.5-turbo-1106",
@@ -108,8 +109,7 @@ Future<String> getGPT3Completion(
   };
 
   final headers = {
-    'Authorization':
-    'Bearer $apiKey',
+    'Authorization': 'Bearer $apiKey',
     'Content-Type': 'application/json'
   };
   final request = http.Request(
@@ -137,8 +137,9 @@ Future lockOrientation() async {
   //supports landscapeLeft,landscapeRight, portraitUp, portraitDown
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 }
+
 //->Return number with Fixed decimal points
-String? numberDecimals(double? number,int decimalPoint) {
+String? numberDecimals(double? number, int decimalPoint) {
   /// MODIFY CODE ONLY BELOW THIS LINE
   // must return amount with 2 decimal points
   if (number == null) {
@@ -146,6 +147,7 @@ String? numberDecimals(double? number,int decimalPoint) {
   } else {
     return number.toStringAsFixed(decimalPoint);
   }
+
   /// MODIFY CODE ONLY ABOVE THIS LINE
 }
 
@@ -159,7 +161,11 @@ void numbersList() {
 
 //->Expand Nested List
 void ExpandNestedList() {
-  List<List<int>> nestedList = [[1, 2], [3, 4], [5, 6]];
+  List<List<int>> nestedList = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+  ];
   List<int> flatList = nestedList.expand((list) => list).toList();
   print(flatList); // Output: [1, 2, 3, 4, 5, 6]
 }
@@ -176,7 +182,7 @@ List<String> SortItems(List<String> states) {
     }
   });
   print(states);
-  return(states);
+  return (states);
 }
 
 //Sort List by Length
@@ -194,18 +200,18 @@ int findMostFrequent(List<int> list) {
   return frequencyMap.entries.reduce((a, b) => a.value > b.value ? a : b).key;
 }
 
-//Add Days to Date
+// Add Days to Date
 
 // String addtoDate(
 //     DateTime? date,
 //     int daystoAdd,
-//     ) {
-//
+//     ) {f
+
 //   // add days to date
 //   //safasf
 //   // DateTime date = DateTime.now();
 //   if (date == null) return "1/23/1234";
-//
+
 //   DateTime newDate = date.add(Duration(days: daystoAdd));
 //   return DateFormat.yMd().format(newDate);
 //   // return DateFormat.yMMMMd().format(newDate);
@@ -216,4 +222,3 @@ int findMostFrequent(List<int> list) {
 int fibonacci(int n) {
   return n < 2 ? n : (fibonacci(n - 1) + fibonacci(n - 2));
 }
-
