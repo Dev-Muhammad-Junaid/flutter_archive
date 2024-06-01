@@ -4,8 +4,10 @@ import 'package:flutter_archive/dart-widgets/animatedButton.dart';
 import 'package:flutter_archive/dart-widgets/animtedSlider.dart';
 import 'package:flutter_archive/pages/blog_post_widget.dart';
 import 'package:flutter_archive/viewmodels/blog_post_vm.dart';
-import 'dart-widgets/dateTimePicker.dart';
+import 'dart-widgets/RangeDateTimePicker.dart';
 import 'package:get_it/get_it.dart';
+
+import 'dart-widgets/RangeDateTimePicker02.dart';
 
 void setupLocator() {
   GetIt.I.registerLazySingleton(() => BlogPostViewModel());
@@ -60,14 +62,12 @@ class Home extends StatelessWidget {
                   height: 60,
                   value: 0.4,
                   cornerRadius: BorderRadius.circular(0),
-                  onChange: (value) {
-                  },
+                  onChange: (value) {},
                 ),
                 Padding(padding: EdgeInsets.all(50)),
                 InteractiveSlider(
                   value: 0.9,
-                  onChange: (value) {
-                  },
+                  onChange: (value) {},
                 ),
 
                 const Padding(
@@ -82,13 +82,28 @@ class Home extends StatelessWidget {
                     child: const Text("Animated Align"),
                   );
                 }),
+                // Builder(builder: (context) {
+                //   return ElevatedButton(
+                //     onPressed: () => Navigator.push(
+                //         context,
+                //         MaterialPageRoute(
+                //             builder: (context) => const SomeRandomDateTimePicker())),
+                //     child: const Text("Range Date Picker 01"),
+                //   );
+                // }),
                 Builder(builder: (context) {
                   return ElevatedButton(
                     onPressed: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const RangeDateTimePicker())),
-                    child: const Text("Date Time Picker Page"),
+                            builder: (context) => const DateRangePicker(
+                              height: 400,
+                              width: 300,
+                              backgroundColor: Colors.black45,
+                              fontColor: Colors.white,
+
+                                ))),
+                    child: const Text("Range Date Picker 02"),
                   );
                 }),
                 Builder(builder: (context) {
@@ -99,7 +114,8 @@ class Home extends StatelessWidget {
                     ),
                     child: const Text("Blogs Streaming"),
                   );
-                }), Builder(builder: (context) {
+                }),
+                Builder(builder: (context) {
                   return ElevatedButton(
                     onPressed: () => Navigator.push(
                       context,
