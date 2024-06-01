@@ -4,6 +4,7 @@ import 'package:flutter_archive/dart-widgets/animatedButton.dart';
 import 'package:flutter_archive/dart-widgets/animtedSlider.dart';
 import 'package:flutter_archive/pages/blog_post_widget.dart';
 import 'package:flutter_archive/viewmodels/blog_post_vm.dart';
+import 'dart-widgets/dateTimePicker.dart';
 import 'package:get_it/get_it.dart';
 
 void setupLocator() {
@@ -46,21 +47,29 @@ class Home extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                   child: Gradients(
                     animationDuration: 3,
-                    borderRadius: 1000,
+                    borderRadius: 25,
                     borderWidth: 2,
                     containerColor: Colors.transparent,
                     gradientStyle: "Trident",
-                    height: 50,
+                    height: 20,
                     width: 50,
                   ),
                 ),
-                AnimatedSlider(
+                InteractiveSlider(
                   leftFillColor: Colors.orange.shade400,
                   height: 60,
                   value: 0.4,
-                  cornerRadius: BorderRadius.circular(1000),
-                  onChange: (value) {},
+                  cornerRadius: BorderRadius.circular(0),
+                  onChange: (value) {
+                  },
                 ),
+                Padding(padding: EdgeInsets.all(50)),
+                InteractiveSlider(
+                  value: 0.9,
+                  onChange: (value) {
+                  },
+                ),
+
                 const Padding(
                   padding: EdgeInsets.all(10.0),
                 ),
@@ -71,6 +80,15 @@ class Home extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => const AnimatedAlignWidget())),
                     child: const Text("Animated Align"),
+                  );
+                }),
+                Builder(builder: (context) {
+                  return ElevatedButton(
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RangeDateTimePicker())),
+                    child: const Text("Date Time Picker Page"),
                   );
                 }),
                 Builder(builder: (context) {

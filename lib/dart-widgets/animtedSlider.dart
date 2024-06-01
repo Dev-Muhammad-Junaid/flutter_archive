@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AnimatedSlider extends StatefulWidget {
-  AnimatedSlider({
+class InteractiveSlider extends StatefulWidget {
+  InteractiveSlider({
     super.key,
     this.value = 0.0,
     this.barColor = Colors.white,
@@ -39,13 +39,13 @@ class AnimatedSlider extends StatefulWidget {
   final void Function(double value)? onChange;
 
   @override
-  State<AnimatedSlider> createState() => _AnimatedSliderState();
+  State<InteractiveSlider> createState() => _InteractiveSliderState();
 }
 
 const _animationDuration = Duration(milliseconds: 100);
 const _barHorizontalMargins = 6.0;
 
-class _AnimatedSliderState extends State<AnimatedSlider> {
+class _InteractiveSliderState extends State<InteractiveSlider> {
   late final _dragBarWidth = widget.barWidth + (_barHorizontalMargins * 2);
   late final _dragRegion = Size(_dragBarWidth + 20, widget.height);
 
